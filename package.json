@@ -4,12 +4,14 @@
   "description": "Backend de novaAPP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pedroj4567/NovaApp.git"
   },
+  "type": "module",
   "author": "pedro acosta",
   "license": "ISC",
   "bugs": {
@@ -20,7 +22,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "sequelize": "^6.26.0"
+    "mongoose": "^6.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
