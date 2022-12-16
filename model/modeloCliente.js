@@ -1,14 +1,12 @@
-import mongoose from "mongoose";
+import {Schema,model} from "mongoose";
 
-const schemaClientes = mongoose.Schema({
+const schemaClientes = Schema({
     nombre:String,
     empresa:String,
     correo:String,
-    telefono: String,
-},{
-    versionkey : false
+    telefono: String
 })
 
-const Cliente = mongoose.model('clientes',schemaClientes);
+const Cliente = model('clientes', schemaClientes);
 
 export default Cliente;

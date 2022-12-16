@@ -1,16 +1,15 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 
 mongoose.set('strictQuery', true);
 
 const conectarDB = async () =>{
-
     try{
-        const db = mongoose.connect(process.env.MONGO_URI,{
+            mongoose.connect("mongodb+srv://pedroj4567:pj-28176538@cluster0.axz9qg0.mongodb.net/novaPP", {
             useNewUrlParser:true,
             useUnifiedTopology : true,
         });
 
-        console.log(`base de datos conectada`)
+        console.log('conecta')
     }catch(e){
         console.log(`error: ${e}`);
         process.exit(1);
@@ -18,5 +17,4 @@ const conectarDB = async () =>{
 
 
 }
-
 export default conectarDB;

@@ -1,4 +1,4 @@
-/* import Router from 'express'
+import Router from 'express'
 import {listarClientes,registrarCliente,editarCliente,eliminarCliente} from '../controller/clienteControlador.js';
 const router = Router();
 
@@ -9,4 +9,7 @@ router.post('/',registrarCliente);
 
 router.put('/:id',editarCliente);
 
-router.delete('/:id', eliminarCliente); */
+router.delete('/:id', eliminarCliente);
+
+
+export default router;
