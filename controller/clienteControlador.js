@@ -10,14 +10,13 @@ const listarClientes = async (req,res)=>{
 }
 
 const registrarCliente = async (req,res) =>{
+    const {email} = req.body;
+    const existe = await Cliente.findOne(email)
+    if(existe){
+        return res.status(400).json({msg:"Cliente ya registrado"})
+    }
+
     try {
-        const {correo} = req.body;
-        const clienteExiste = await Cliente.findOne({correo});
-        if(clienteExiste){
-            return res.status(400).json({msg:"Cliente registrado"});
-        }
-
-
         const nuevoCliente = new Cliente(req.body);
         const clienteGuardado = nuevoCliente.save()
         res.status(202).json({msg:'registrado satisfactoriamente', clienteGuardado})

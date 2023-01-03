@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 //ritas 
 import routerCliente from './routes/routerCliente.js'; 
+import routerPromotor from "./routes/routerPromotor.js";
 import conectarDB from './config/bd.js';
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -18,6 +19,8 @@ conectarDB();
 
 //rutas
 app.use('/api/clientes',routerCliente)
+app.use('/api/promotores', routerPromotor)
+
 
 app.listen(PORT, ()=>{
     console.log(`server runnin in the port: ${PORT}`)
