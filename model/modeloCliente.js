@@ -2,11 +2,20 @@ import {Schema,model} from "mongoose";
 
 const schemaClientes = Schema({
     nombre:String,
+    apellido:String,
     empresa:String,
-    correo:String,
-    telefono: String
+    correo:{
+        unique:true,
+        type:String,
+    },
+    telefono: String,
+    tipo: String,
+    direccion: String,
+    rif:String,
+    atendido:Boolean,
+    
 })
 
-const Cliente = model('clientes', schemaClientes);
+const Cliente = model('Clientes', schemaClientes);
 
 export default Cliente;

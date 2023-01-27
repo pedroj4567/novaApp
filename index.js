@@ -1,16 +1,22 @@
 import express from 'express';
 import dotenv from 'dotenv';
-//ritas 
+//rutas 
 import routerCliente from './routes/routerCliente.js'; 
-import routerPromotor from "./routes/routerPromotor.js";
+
+//extras
 import conectarDB from './config/bd.js';
+import morgan from 'morgan';
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 //variables de entorno 
 dotenv.config()
 
+//debug 
+app.use(morgan('dev'))
 
+//Parse a json
 app.use(express.json());
 
 
@@ -19,7 +25,8 @@ conectarDB();
 
 //rutas
 app.use('/api/clientes',routerCliente)
-app.use('/api/promotores', routerPromotor)
+
+
 
 
 app.listen(PORT, ()=>{

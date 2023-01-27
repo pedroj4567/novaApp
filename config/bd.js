@@ -4,7 +4,7 @@ mongoose.set('strictQuery', true);
 
 const conectarDB = async () =>{
     try{
-            mongoose.connect("mongodb+srv://pedroj4567:pj-28176538@cluster0.axz9qg0.mongodb.net/novaPP", {
+            mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser:true,
             useUnifiedTopology : true,
         });
