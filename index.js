@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 //rutas 
 import routerCliente from './routes/routerCliente.js'; 
-
+import routerAutenticacion from './routes/routerAutenticacion.js';
 //extras
 import conectarDB from './config/bd.js';
 import morgan from 'morgan';
@@ -25,8 +25,7 @@ conectarDB();
 
 //rutas
 app.use('/api/clientes',routerCliente)
-
-
+app.use('/api/auth',routerAutenticacion)
 
 
 app.listen(PORT, ()=>{

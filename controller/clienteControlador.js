@@ -33,7 +33,11 @@ const registrarCliente = async (req,res) =>{
 
 
 const editarCliente = async (req,res)=>{
-   
+    const clienteExiste = await Cliente.findOne()
+    console.log(clienteExiste)
+    /* if(clienteExiste){
+        return res.status(400).json({msg:'Cliente ya registrado'})
+    } */
     try {
         const clienteEditado = await Cliente.findByIdAndUpdate(req.params.id,req.body,{
             new:true
