@@ -15,9 +15,11 @@ const usuario = new Schema({
         type:String
     },
     roles:[{
-            ref :'modeloRol',
+            ref :'Roles',
             type: Schema.Types.ObjectId
         }]
+},{
+    timestamps:true
 });
 
 usuario.statics.encryptPassword = async (password) =>{

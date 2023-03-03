@@ -1,9 +1,13 @@
 import {Schema,model} from 'mongoose'
+import multer from 'multer';
+
 
 const proyecto = new Schema({
     nombre:String,
     fechaInicio : String,
     fechaCulminacion:String,
+    lugar:String,
+    tipo:String,
     responsable:String,
     documentos :[
         {

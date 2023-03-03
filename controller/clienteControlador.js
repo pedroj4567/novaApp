@@ -2,10 +2,8 @@ import Cliente from '../model/modeloCliente.js';
 
 const listarClientes = async (req,res)=>{
     const registros = await Cliente.find();
-
-    if(registros.length < 1){
-       return res.status(400).json({msg:'No posee registros aun.'})
-    }
+ 
+    if(registros.length < 1) return res.status(400).json({msg:'No posee registros aun.'})
     
     try {
         const clientes = await Cliente.find();
@@ -17,10 +15,10 @@ const listarClientes = async (req,res)=>{
 
 const registrarCliente = async (req,res) =>{
     const {email} = req.body;
-    const clienteExiste = await Cliente.findOne(email)
-    if(clienteExiste){
+    const clienteExiste = await Cliente.findOne({email})
+/*     if(clienteExiste){
         return res.status(400).json({msg:'Cliente ya registrado'})
-    }
+    } */
     try {
         const clienteNuevo = new Cliente(req.body);
         await clienteNuevo.save();
@@ -34,7 +32,7 @@ const registrarCliente = async (req,res) =>{
 
 const editarCliente = async (req,res)=>{
     const clienteExiste = await Cliente.findOne()
-    console.log(clienteExiste)
+   
     /* if(clienteExiste){
         return res.status(400).json({msg:'Cliente ya registrado'})
     } */

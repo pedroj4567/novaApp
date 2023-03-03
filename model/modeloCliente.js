@@ -14,6 +14,8 @@ const schemaClientes = Schema({
     rif:String,
     atendido:Boolean,
     
+},{
+    timeStamps:true
 })
 
 const Cliente = model('Clientes', schemaClientes);
